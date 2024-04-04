@@ -34,8 +34,5 @@ class TelegramController extends Controller
         $updates = $telegram->getWebhookUpdate();
 
         file_put_contents('messages.txt', json_encode($updates));
-
-        // dump($request->all());
-        // dump('get');
     }
 }
