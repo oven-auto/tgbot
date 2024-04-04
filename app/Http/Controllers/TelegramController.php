@@ -17,8 +17,6 @@ class TelegramController extends Controller
 
     public function set()
     {
-        https://api.telegram.org/bot1876839957:AAFFHi01dJeH8le6qtDgYL117UFD00umhWY/setwebhook?url=https://telegram.oven-auto.ru/get
-
         $tgUrl = 'https://api.telegram.org/bot';
         $token = env('TELEGRAM_BOT_KEY');
         $webUrl = 'https://telegram.oven-auto.ru/get';
