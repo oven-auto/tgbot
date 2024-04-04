@@ -31,7 +31,7 @@ class TelegramController extends Controller
     {
         $telegram = new Api(env('TELEGRAM_BOT_KEY'));
 
-        $updates = $service->getWebhookUpdate();
+        $updates = $telegram->getWebhookUpdate();
 
         file_put_contents('messages.txt', json_encode($updates));
 
