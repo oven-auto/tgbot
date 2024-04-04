@@ -9,11 +9,11 @@ class TelegramController extends Controller
 {
     public function index()
     {
-        $telegram = new Api(env('TELEGRAM_BOT_KEY'));
+        //$telegram = new Api(env('TELEGRAM_BOT_KEY'));
 
-        $updates = $service->getWebhookUpdate();
+        //$updates = $service->getWebhookUpdate();
 
-        file_put_contents('messages.txt', json_encode($updates));
+        //file_put_contents('messages.txt', json_encode($updates));
 
         dump('get');
     }
@@ -22,11 +22,11 @@ class TelegramController extends Controller
 
     public function set()
     {
-        $telegram = new Api(env('TELEGRAM_BOT_KEY'));
+        // $telegram = new Api(env('TELEGRAM_BOT_KEY'));
 
-        $res = $telegram->setWebhook([
-            'url' => 'https://telegram.oven-auto.ru/'.env('TELEGRAM_BOT_KEY').'webhook',
-        ]);
+        // $res = $telegram->setWebhook([
+        //     'url' => 'https://telegram.oven-auto.ru/'.env('TELEGRAM_BOT_KEY').'webhook',
+        // ]);
 
         dump('set');
     }
