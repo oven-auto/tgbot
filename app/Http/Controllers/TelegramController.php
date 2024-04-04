@@ -30,4 +30,11 @@ class TelegramController extends Controller
 
         dump('set');
     }
+
+
+
+    public function get()
+    {
+        dump('geeet');
+    }
 }
