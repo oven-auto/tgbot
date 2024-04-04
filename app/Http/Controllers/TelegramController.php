@@ -35,6 +35,7 @@ class TelegramController extends Controller
 
         file_put_contents('messages.txt', json_encode($request->all()));
 
+        dump($request->all());
         dump('get');
     }
 }
