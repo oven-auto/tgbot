@@ -17,13 +17,17 @@ class TelegramController extends Controller
 
     public function set()
     {
-        $telegram = new Api(env('TELEGRAM_BOT_KEY'));
+        https://api.telegram.org/bot1876839957:AAFFHi01dJeH8le6qtDgYL117UFD00umhWY/setwebhook?url=https://telegram.oven-auto.ru/get
 
-        $res = $telegram->setWebhook([
-            'url' => 'https://telegram.oven-auto.ru/get/'.env('TELEGRAM_BOT_KEY').'webhook',
-        ]);
+        $tgUrl = 'https://api.telegram.org/bot';
+        $token = env('TELEGRAM_BOT_KEY');
+        $webUrl = 'https://telegram.oven-auto.ru/get';
 
-        dump('set');
+        $url = $tgUrl.$token.'/setwebhook?url='.$webUrl;
+
+        $response = Http::get($url);
+
+        dump($response->body());
     }
 
 
