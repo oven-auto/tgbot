@@ -14,6 +14,8 @@ class TelegramController extends Controller
         $updates = $service->getWebhookUpdate();
 
         file_put_contents('messages.txt', json_encode($updates));
+
+        dump('get');
     }
 
 
@@ -25,5 +27,7 @@ class TelegramController extends Controller
         $res = $telegram->setWebhook([
             'url' => 'https://telegram.oven-auto.ru/'.env('TELEGRAM_BOT_KEY').'webhook',
         ]);
+
+        dump('set');
     }
 }
