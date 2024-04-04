@@ -27,13 +27,13 @@ class TelegramController extends Controller
 
 
 
-    public function get()
+    public function get(Request $request)
     {
         $telegram = new Api(env('TELEGRAM_BOT_KEY'));
 
         $updates = $telegram->getWebhookUpdate();
 
-        file_put_contents('messages.txt', json_encode($updates));
+        file_put_contents('messages.txt', json_encode($request->all()));
 
         dump('get');
     }
