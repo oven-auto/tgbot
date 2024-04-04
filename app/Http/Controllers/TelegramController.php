@@ -17,13 +17,21 @@ class TelegramController extends Controller
         $this->token = env('TELEGRAM_BOT_KEY');
     }
 
+
+
+    /**
+    * ПРОСТО ПРИВЕТ
+    */
     public function index()
     {
-        dd('TG');
+        dump('КУКУ ЕПТА, Я ТГ БОТ');
     }
 
 
 
+    /**
+    * УСТАНОВИТЬ ВЕБХУК
+    */
     public function set()
     {
         $webUrl = 'https://telegram.oven-auto.ru/get';
@@ -37,6 +45,9 @@ class TelegramController extends Controller
 
 
 
+    /**
+    * ВЕБХУК
+    */
     public function get(Request $request)
     {
         $telegram = new Api(env('TELEGRAM_BOT_KEY'));
@@ -52,6 +63,9 @@ class TelegramController extends Controller
 
 
 
+    /**
+    * ИНФОРМАЦИЯ О СТАТУСЕ ВЕБХУКА
+    */
     public function info()
     {
         $url = $this->telegramUrl.$this->token.'/getWebhookInfo';
