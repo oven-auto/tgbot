@@ -3,8 +3,11 @@
 use App\Http\Controllers\TelegramController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('', [TelegramController::class, 'index']);
+Route::get('', [TelegramController::class, 'index'])
+	->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
 
-Route::get('set', [TelegramController::class, 'set']);
+Route::get('set', [TelegramController::class, 'set'])
+	->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
 
-Route::get('get', [TelegramController::class, 'get']);
+Route::match(['get','post'], 'get', [TelegramController::class, 'get'])
+	->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
