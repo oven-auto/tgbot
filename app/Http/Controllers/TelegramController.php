@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Telegram\Bot\Api;
+use Illuminate\Support\Facades\Http;
 
 class TelegramController extends Controller
 {
@@ -33,6 +34,10 @@ class TelegramController extends Controller
 
         $updates = $telegram->getWebhookUpdate();
 
-        file_put_contents('messages.txt', json_encode($updates));
+        $url = 'http://62.182.31.140:8280/api/telegram/get';
+
+        $response = Http::get($url, [
+            'message' => $request->all(),
+        ]);
     }
 }
