@@ -7,8 +7,10 @@ use Telegram\Bot\Api;
 
 class TelegramController extends Controller
 {
-    public function index(Api $service)
+    public function index()
     {
+        $telegram = new Api(env('TELEGRAM_BOT_KEY'));
+
         $updates = $service->getWebhookUpdate();
 
         file_put_contents('messages.txt', json_encode($updates));
@@ -16,9 +18,11 @@ class TelegramController extends Controller
 
 
 
-    public function set(Api $service)
+    public function set()
     {
-        $service->setWebhook([
+        $telegram = new Api(env('TELEGRAM_BOT_KEY'));
+
+        $res = $telegram->setWebhook([
             'url' => 'https://telegram.oven-auto.ru/'.env('TELEGRAM_BOT_KEY').'webhook',
         ]);
     }
