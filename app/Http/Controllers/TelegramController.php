@@ -13,7 +13,7 @@ class TelegramController extends Controller
 
     public function __construct()
     {
-        $this->telegramUrl =  = 'https://api.telegram.org/bot';
+        $this->telegramUrl = 'https://api.telegram.org/bot';
         $this->token = env('TELEGRAM_BOT_KEY');
     }
 
