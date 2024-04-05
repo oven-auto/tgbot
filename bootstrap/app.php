@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->validateCsrfTokens(except: [
-            'get',
+            'get', 'send'
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

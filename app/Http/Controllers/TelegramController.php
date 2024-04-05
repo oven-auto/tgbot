@@ -30,6 +30,18 @@ class TelegramController extends Controller
 
 
     /**
+    * SEND
+    */
+    public function send(array $data)
+    {
+        $service = new Api(env('TELEGRAM_BOT_KEY'));
+        
+        $service->sendMessage($options);
+    }
+
+
+
+    /**
     * УСТАНОВИТЬ ВЕБХУК
     */
     public function set()
